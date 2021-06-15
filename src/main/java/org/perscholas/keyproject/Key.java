@@ -65,8 +65,8 @@ public class Key implements Cloneable, Comparable<Key> {
 	@Override
 	public boolean equals(Object o) {
 		if (!getClass().isInstance(o)) return false;
-		Key okey = (Key) o;
-		return key.equals(okey.key);
+		Key oKey = (Key) o;
+		return key.equals(oKey.key) && shape.equals(oKey.shape);
 	}
 	
 	@Override

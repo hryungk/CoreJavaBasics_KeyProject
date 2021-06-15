@@ -34,4 +34,15 @@ public class KeyTest {
 		Key keyCopy = new Key(key);
 		assertEquals(key, keyCopy);
 	}
+	
+	@Test
+	void testConstructorKeyShape() {
+		/*
+		 * Given: An instance of Key class 
+		 * When: Use the KeyShape constructor to create the Key instance
+		 * Then: The Key should have a KeyShape assigned.
+		 */
+		Key key1 = new Key(KeyShape.Circular);
+		assertEquals(KeyShape.Circular, key1.shape());
+	}
 }

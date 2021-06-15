@@ -19,7 +19,7 @@ public class Warehouse {
 		}
 		
 		for (Door d : doors) {
-			System.out.println(d.getKey());
+			System.out.println(d);
 		}
 	}
 

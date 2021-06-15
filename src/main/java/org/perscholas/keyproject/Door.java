@@ -15,6 +15,13 @@ public class Door {
 	private boolean isLocked;
 	
 	/**
+	 * Default constructor of a Door without a Key
+	 */
+	public Door() {		
+		this(null);
+	}
+	
+	/**
 	 * Constructor of a Door with a matching Key
 	 * @param key A Key object that fits this door lock
 	 */
@@ -32,11 +39,11 @@ public class Door {
 	}
 	
 	/**
-	 * Returns the Key to this Door
-	 * @return A Key object that represents the key to this Door
+	 * Returns the KeyShape to this Door
+	 * @return A KeyShape object that represents the key's shape to this Door
 	 */
-	public Key getKey() {
-		return key;
+	public KeyShape getKeyShape() {
+		return key.shape();
 	}
 	
 	/**
@@ -56,8 +63,9 @@ public class Door {
 		// If there is no key, the door is always unlocked.
 		if (this.key == null)
 			isLocked = false;
-		else if (this.key.equals(key)) // If there is a key, the input key should match this door's key to lock the door 
-			isLocked = true;		
+		else if (this.key.equals(key))  // If there is a key, the input key should match this door's key to lock the door 
+			isLocked = true;
+		
 		return isLocked;
 	}
 	
@@ -75,4 +83,8 @@ public class Door {
 		return !isLocked;	
 	}
 
+	@Override
+	public String toString() {
+		return "The door is " + (isLocked ? "" : "NOT ") + "locked." ;		
+	}
 }

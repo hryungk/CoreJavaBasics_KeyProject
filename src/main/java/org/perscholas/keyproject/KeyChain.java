@@ -88,10 +88,10 @@ public class KeyChain {
 			return false; // the door cannot be locked
 		/** If the door has a key **/
 		/*** If the KeyChain doesn't have keys with the same shape ***/
-		if (!keys.containsKey(door.getKey().shape()))
+		if (!keys.containsKey(door.getKeyShape()))
 			return isLocked; // Can't do anything
 		/*** If the KeyChain has keys with the same shape ***/
-		ArrayList<Key> keysOfAShape = keys.get(door.getKey().shape());
+		ArrayList<Key> keysOfAShape = keys.get(door.getKeyShape());
 		Iterator<Key> it = keysOfAShape.iterator();
 		while (!isLocked && it.hasNext()) {
 			isLocked = door.lock(it.next());
@@ -122,10 +122,10 @@ public class KeyChain {
 			return false; // the door cannot be unlocked
 		/** If the door has a key **/
 		/*** If the KeyChain doesn't have keys with the same shape ***/
-		if (!keys.containsKey(door.getKey().shape()))
+		if (!keys.containsKey(door.getKeyShape()))
 			return isUnlocked; // Can't do anything
 		/*** If the KeyChain has keys with the same shape ***/
-		ArrayList<Key> keysOfAShape = keys.get(door.getKey().shape());
+		ArrayList<Key> keysOfAShape = keys.get(door.getKeyShape());
 		Iterator<Key> it = keysOfAShape.iterator();
 		while (!isUnlocked && it.hasNext()) {
 			isUnlocked = door.unlock(it.next());
