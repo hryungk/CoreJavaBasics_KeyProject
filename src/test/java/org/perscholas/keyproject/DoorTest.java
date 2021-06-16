@@ -70,4 +70,19 @@ public class DoorTest {
 		
 		assertTrue(door.lock(key1));		
 	}
+	
+	@Test
+	void testLockWithNull() {
+		/*
+		 * Given: Door class and Key class
+		 * When: Create an instance of the Door class with a key.
+		 * Then: The Door should not lock with the null key.
+		 */
+		Key key1 = new Key();
+		Door door = new Door(key1);
+		
+		assertTrue(door.unlock(key1));
+		
+		assertFalse(door.lock(null));			
+	}
 }

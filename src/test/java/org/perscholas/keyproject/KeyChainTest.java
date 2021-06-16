@@ -23,6 +23,7 @@ public class KeyChainTest {
 		KeyChain keyChain = new KeyChain();		
 		assertTrue(keyChain.add(key));
 		assertEquals(keyChain.toString(), key.toString());
+		assertEquals(keyChain.size(), 1);
 	}
 	
 	@Test
@@ -67,6 +68,7 @@ public class KeyChainTest {
 		KeyChain keyChain = new KeyChain(key);		
 		assertTrue(keyChain.remove(key));
 		assertEquals(keyChain.toString(), "");
+		assertEquals(keyChain.size(), 0);
 	}
 			
 	@Test
