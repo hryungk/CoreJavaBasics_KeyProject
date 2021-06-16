@@ -25,12 +25,22 @@ public class KeyChain {
 	}
 	
 	/**
+	 * Constructor that accepts a Key object
+	 * @param key A Key object to add to this KeyChain
+	 */
+	public KeyChain(Key key) {
+		add(key);
+	}
+	
+	/**
 	 * Constructor that accepts a collection of Key objects
 	 * @param keys A Collection of Key objects to add to this KeyChain
 	 */
 	public KeyChain(Collection<Key> keys) {
 //		this.keys.addAll(keys);
-		
+		for (Key k : keys) {
+			add(k);
+		}
 	}
 	
 	/**
@@ -54,8 +64,7 @@ public class KeyChain {
 	public boolean add(Key key) {
 //		return keys.add(key);		
 		keys.putIfAbsent(key.shape(), new ArrayList<Key>());
-		keys.get(key.shape()).add(key);		
-		return true;
+		return keys.get(key.shape()).add(key);		
 	}
 	
 	/**
@@ -139,4 +148,19 @@ public class KeyChain {
 		return isUnlocked;
 	}
 	
+	@Override
+	public String toString() {
+		String result = "";
+		if (size() == 0)
+			return result;
+		
+		for (KeyShape ks : keys.keySet()) {
+			ArrayList<Key> kList = keys.get(ks);
+			for (Key k : kList) {
+				result += k.toString() + "\n";
+			}
+		}
+		result = result.substring(0,result.length()-1);
+		return result;
+	}
 }

@@ -54,7 +54,8 @@ public class Key implements Cloneable, Comparable<Key> {
 	
 	@Override
 	public String toString() {
-		return shape.toString() + "\t" + key.toString();
+//		return shape.toString() + "\t" + key.toString();
+		return shape.toString() + "\t" + key.toString().substring(0, 5);
 	}
 
 	@Override
